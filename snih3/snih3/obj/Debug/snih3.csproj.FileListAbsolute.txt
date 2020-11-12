@@ -1,0 +1,10 @@
+C:\Users\Martin\source\repos\snih3\snih3\bin\Debug\snih3.exe.config
+C:\Users\Martin\source\repos\snih3\snih3\bin\Debug\snih3.exe
+C:\Users\Martin\source\repos\snih3\snih3\bin\Debug\snih3.pdb
+C:\Users\Martin\source\repos\snih3\snih3\obj\Debug\snih3.app.resources
+C:\Users\Martin\source\repos\snih3\snih3\obj\Debug\snih3.Properties.Resources.resources
+C:\Users\Martin\source\repos\snih3\snih3\obj\Debug\snih3.csproj.GenerateResource.cache
+C:\Users\Martin\source\repos\snih3\snih3\obj\Debug\snih3.csproj.CoreCompileInputs.cache
+C:\Users\Martin\source\repos\snih3\snih3\obj\Debug\snih3.exe
+C:\Users\Martin\source\repos\snih3\snih3\obj\Debug\snih3.pdb
+C:\Users\Martin\source\repos\snih3\snih3\obj\Debug\snih3.csprojAssemblyReference.cache
