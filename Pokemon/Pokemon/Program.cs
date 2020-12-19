@@ -9,9 +9,11 @@ namespace Pokemon
 {
     class Program
     {
+        // vyvolani hry
         static void Main(string[] args)
         {
             Game game = new Game();
         }
+
     }
 }

@@ -10,6 +10,7 @@ namespace Pokemon.Object
     class Player
     {
 
+        //pocet pokemonu v party
         public List<int> Party = new List<int>();
 
 

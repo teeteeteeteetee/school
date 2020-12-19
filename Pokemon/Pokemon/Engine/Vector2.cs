@@ -10,7 +10,7 @@ namespace Pokemon.Engine
 {
     public class Vector2
     {
-
+        // souradnice X a Y
         public float X { get; set; }
         public float Y { get; set; }
 
@@ -19,6 +19,8 @@ namespace Pokemon.Engine
             X = Zero().X;
             Y = Zero().Y;
         }
+
+
         public Vector2(float X, float Y)
         {
             this.X = X;
