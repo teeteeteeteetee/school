@@ -27,6 +27,8 @@ namespace Pokemon.Engine
         private Window Window = null;
         private Thread GameLoop = null;
 
+        private static List<Player2D> AllPlayers = new List<Player2D>();
+
         public Color BackgroundColor = Color.Aqua;
         public Image BackgroundImage = Properties.Resources.grass;
 
@@ -44,6 +46,8 @@ namespace Pokemon.Engine
             Window.MaximizeBox = false;
             Window.Text = this.windowTitle;
             Window.Paint += Renderer;
+            Window.KeyDown += KeyInput;
+            Window.KeyUp += KeyRelease;
             Window.BackgroundImage = Properties.Resources.grass;
 
             onLoad();
@@ -53,6 +57,16 @@ namespace Pokemon.Engine
 
             Application.Run(Window);
 
+        }
+
+        public static void RegisterPlayer(Player2D player)
+        {
+            AllPlayers.Add(player);
+        }
+
+        public static void UnRegisterPlayer(Player2D player)
+        {
+            AllPlayers.Remove(player);
         }
 
         void gameLoop()
@@ -90,37 +104,27 @@ namespace Pokemon.Engine
         {
             Graphics g = e.Graphics;
 
-/*            Debug.WriteLine($"X: {Window.Width}");
-            Debug.WriteLine($"Y: {Window.Height}");
-            Debug.WriteLine($"{BackgroundImage.Width}x{BackgroundImage.Height}");*/
-
-/*            //X
-            if(textureX <= Window.Width)
+            foreach (Player2D player in AllPlayers)
             {
-                Debug.WriteLine("im here");
-                Debug.WriteLine(textureX);
-                g.DrawImage(BackgroundImage, textureX - 5, 0);
-                Debug.WriteLine(textureX);
-                Thread.Sleep(1000);
-                textureX =+ BackgroundImage.Width;
+                g.DrawImage(player.Character, player.Position.X, player.Position.Y, player.Scale.X, player.Scale.Y);
             }
-            //Y
-            if (textureY <= Window.Width)
-            {
-                Debug.WriteLine("im here");
-                Debug.WriteLine(textureY);
-                g.DrawImage(BackgroundImage, textureX - 5, textureY - 5);
-                Debug.WriteLine(textureY);
-                Thread.Sleep(1000);
-                textureY =+ BackgroundImage.Height;
-                textureX = 0;
-            }*/
 
         }
 
+        private void KeyInput(object sender, KeyEventArgs e)
+        {
+            GetKeyDown(e);
+        }
+
+        private void KeyRelease(object sender, KeyEventArgs e)
+        {
+            GetKeyUp(e);
+        }
         public abstract void onLoad();
         public abstract void onUpdate();
         public abstract void onDraw();
+        public abstract void GetKeyDown(KeyEventArgs e);
+        public abstract void GetKeyUp(KeyEventArgs e);
 
     }
 }

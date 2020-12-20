@@ -13,17 +13,19 @@ namespace Pokemon.Engine
         public Vector2 Position = null;
         public Vector2 Scale = null;
         public string Tag = "";
-        public Bitmap Bitmap = null;
+        public Bitmap Character = null;
 
         public Shape2D(Vector2 Position, Vector2 Scale, string Tag, Bitmap Bitmap)
         {
             this.Position = Position;
             this.Scale = Scale;
             this.Tag = Tag;
-            this.Bitmap = Bitmap;
+
+            Bitmap bitmap = new Bitmap(Bitmap);
+            Character = bitmap;
 
             //ulozi objekty do listu, jejich posice velikost a jmeno
-            Engine.RegisterShape(this);
+            //Engine.RegisterShape(this);
         }
 
     }

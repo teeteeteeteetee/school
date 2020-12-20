@@ -77,6 +77,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Engine\Game.cs" />
+    <Compile Include="Engine\Player2D.cs" />
+    <Compile Include="Engine\Shape2D.cs" />
     <Compile Include="Engine\Vector2.cs" />
     <Compile Include="Object\Party.cs" />
     <Compile Include="Object\Player.cs" />
@@ -95,7 +97,9 @@
     <None Include="Object\Attributes\pokemon-info.json" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Textures\Left.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,6 +111,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Textures\grass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\LeftLeftLeg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\LeftRightLeg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\RightLeftLeg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\RightRightLeg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\UpLeftLeg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\UpRightLeg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\DownLeftLeg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\DownRightLeg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scenes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
