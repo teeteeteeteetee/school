@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Pokemon.Engine
 {
-    public class Wall2D
+    public class Ground2D
     {
 
         public Vector2 Position = null;
@@ -15,7 +15,7 @@ namespace Pokemon.Engine
         public string Tag = "";
         public Bitmap Texture = null;
 
-        public Wall2D(Vector2 Position, Vector2 Scale, string Tag, Bitmap Bitmap)
+        public Ground2D(Vector2 Position, Vector2 Scale, string Tag, Bitmap Bitmap)
         {
             this.Position = Position;
             this.Scale = Scale;
@@ -25,7 +25,7 @@ namespace Pokemon.Engine
             Texture = bitmap;
 
             //ulozi objekty do listu, jejich pozice velikost a jmeno
-            Engine.RegisterWall(this);
+            Engine.RegisterGround(this);
         }
 
     }

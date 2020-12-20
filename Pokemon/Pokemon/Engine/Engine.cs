@@ -29,6 +29,8 @@ namespace Pokemon.Engine
 
         public static List<Player2D> AllPlayers = new List<Player2D>();
         public static List<Wall2D> AllWalls = new List<Wall2D>();
+        public static List<Ground2D> AllGrounds = new List<Ground2D>();
+        public static List<Building2D> AllBuildings = new List<Building2D>();
 
         public Color BackgroundColor = Color.Aqua;
         public Image BackgroundImage = Properties.Resources.grass;
@@ -78,6 +80,24 @@ namespace Pokemon.Engine
         {
             AllWalls.Remove(wall);
         }
+        public static void RegisterGround(Ground2D ground)
+        {
+            AllGrounds.Add(ground);
+        }
+
+        public static void UnRegisterGround(Ground2D ground)
+        {
+            AllGrounds.Remove(ground);
+        }
+        public static void RegisterBuilding(Building2D building)
+        {
+            AllBuildings.Add(building);
+        }
+
+        public static void UnRegisterBuilding(Building2D building)
+        {
+            AllBuildings.Remove(building);
+        }
 
         void gameLoop()
         {
@@ -114,10 +134,21 @@ namespace Pokemon.Engine
         {
             Graphics g = e.Graphics;
 
+            foreach (Ground2D ground in AllGrounds)
+            {
+                g.DrawImage(ground.Texture, ground.Position.X, ground.Position.Y, ground.Scale.X, ground.Scale.Y);
+            }
+
+            foreach (Building2D build in AllBuildings)
+            {
+                g.DrawImage(build.Texture, build.Position.X, build.Position.Y, build.Scale.X, build.Scale.Y);
+            }
+
             foreach (Player2D player in AllPlayers)
             {
                 g.DrawImage(player.Texture, player.Position.X, player.Position.Y, player.Scale.X, player.Scale.Y);
             }
+
             foreach (Wall2D wall in AllWalls)
             {
                 g.DrawImage(wall.Texture, wall.Position.X, wall.Position.Y, wall.Scale.X, wall.Scale.Y);

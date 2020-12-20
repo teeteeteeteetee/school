@@ -73,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\Building2D.cs" />
+    <Compile Include="Engine\Ground2D.cs" />
     <Compile Include="Engine\Engine.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +82,7 @@
     <Compile Include="Engine\Player2D.cs" />
     <Compile Include="Engine\Wall2D.cs" />
     <Compile Include="Engine\Vector2.cs" />
+    <Compile Include="Engine\Map.cs" />
     <Compile Include="Object\Party.cs" />
     <Compile Include="Object\Player.cs" />
     <Compile Include="Object\Pokemon.cs" />
@@ -146,10 +149,62 @@
     <None Include="Textures\DownRightLeg.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Audio\" />
     <Folder Include="Scenes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\grassWild.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\treeUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\treeDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\grassWildParticles.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\grassWildRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\grassWildLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\BuildingPokeCenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\buildingPokeCenter_0_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\buildingPokeCenter_0_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\buildingPokeCenter_1_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\buildingPokeCenter_1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\buildingPokeCenter_1_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\buildingPokeCenter_2_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\buildingPokeCenter_2_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\buildingPokeCenter_2_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\buildingPokeCenter_0_0.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

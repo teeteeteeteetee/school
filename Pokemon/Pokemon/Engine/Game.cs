@@ -21,24 +21,18 @@ namespace Pokemon.Engine
 
         //https://docs.microsoft.com/en-us/dotnet/api/system.array?view=net-5.0
         //multi dimensionalni array
-        string[,] Map =
-            {
-                {"g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", "g", "g", "g", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", "g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g", ".", ".", ".", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g", "g", ".", ".", ".", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", "g", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", "g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
-                {"g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g" }
-            };
+
+
+        /// <summary>
+        /// 
+        /// e = treeUp
+        /// t = tree
+        /// f = treeDown
+        /// g = grassWild
+        /// h = buildingPokeHeal
+        /// 
+        /// 
+        /// </summary>
 
         int i = 0;
 
@@ -51,19 +45,10 @@ namespace Pokemon.Engine
         //abstract event
         public override void onLoad()
         {
-            //https://docs.microsoft.com/en-us/dotnet/api/system.array.getlength?view=net-5.0
-            for (int i = 0; i < Map.GetLength(0); i++)
-            {
-                for (int j = 0; j < Map.GetLength(1); j++)
-                {
-                    if(Map[i, j] == "g")
-                    {
-                        new Wall2D(new Vector2(j * 45, i * 45), new Vector2(55, 75), "Tree", Properties.Resources.tree);
-                    }
-                }
-            }
 
-            player = new Player2D(new Vector2(85, 85), new Vector2(35, 55), "Player", Properties.Resources.Down);
+            player = new Player2D(new Vector2(85, 85), new Vector2(45, 65), "Player", Properties.Resources.Down);
+
+            new Map();
 
         }
 
@@ -77,26 +62,14 @@ namespace Pokemon.Engine
         //abstract event
         public override void onUpdate()
         {
-            //Console.WriteLine("updated");
             
         }
-
-/*        public bool IsColliding(string tag)
-        {
-            foreach (Player2D b in Engine.AllPlayers)
-            {
-                if(b.Tag == tag)
-                {
-                    
-                }
-            }
-        }*/
 
         //klavesnice ovladani pres sipky
         public override void GetKeyDown(KeyEventArgs e)
         {
 
-            Thread.Sleep(35);
+            //Thread.Sleep(35);
   
             switch (e.KeyCode)
             {
@@ -171,11 +144,19 @@ namespace Pokemon.Engine
                 player.Position.X = lastPos.X;
                 player.Position.Y = lastPos.Y;
             }
-            else
+
+            //budovy
+            if (player.IsColliding("PokeCenter"))
             {
-                lastPos.X = player.Position.X;
-                lastPos.Y = player.Position.Y;
+                player.Position.X = lastPos.X;
+                player.Position.Y = lastPos.Y;
             }
+            
+
+            lastPos.X = player.Position.X;
+            lastPos.Y = player.Position.Y;
+
+            player.IsWalking("Grass");
 
         }
 

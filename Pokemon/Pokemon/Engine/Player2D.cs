@@ -15,6 +15,10 @@ namespace Pokemon.Engine
         public string Tag = "";
         public Bitmap Texture = null;
 
+        Random rnd = new Random();
+
+        int i = 0;
+
         public Player2D(Vector2 Position, Vector2 Scale, string Tag, Bitmap Bitmap)
         {
             this.Position = Position;
@@ -24,7 +28,7 @@ namespace Pokemon.Engine
             Bitmap bitmap = new Bitmap(Bitmap);
             Texture = bitmap;
 
-            //ulozi objekty do listu, jejich posice velikost a jmeno
+            //ulozi objekty do listu, jejich pozice velikost a jmeno
             Engine.RegisterPlayer(this);
         }
 
@@ -34,10 +38,58 @@ namespace Pokemon.Engine
             {
                 if(a.Tag == tag)
                 {
-                    if (Position.X < a.Position.X + a.Scale.X /2 &&
-                        Position.X + Scale.X /4 > a.Position.X &&
-                        Position.Y < a.Position.Y + a.Scale.Y /2 &&
-                        Position.Y + Scale.Y /4 > a.Position.Y) return true;
+                    if (Position.X < a.Position.X + a.Scale.X / 2 &&
+                        Position.X + Scale.X /2 > a.Position.X &&
+                        Position.Y < a.Position.Y + a.Scale.Y / 1.5 &&
+                        Position.Y + Scale.Y / 1.5 > a.Position.Y) return true;
+                }
+
+            }
+            foreach (Building2D a in Engine.AllBuildings)
+            {
+                if (a.Tag == tag)
+                {
+
+                    if (Position.X < a.Position.X + a.Scale.X / 2 &&
+                        Position.X + Scale.X / 2 > a.Position.X &&
+                        Position.Y < a.Position.Y + a.Scale.Y &&
+                        Position.Y + Scale.Y > a.Position.Y) return true;
+                }
+
+            }
+
+            return false;
+
+        }
+        public bool IsWalking(string tag)
+        {
+
+            foreach (Ground2D a in Engine.AllGrounds)
+            {
+
+                if (a.Tag == tag)
+                {
+                    if (Position.X < a.Position.X + a.Scale.X / 2 &&
+                        Position.X + Scale.X / 2 > a.Position.X &&
+                        Position.Y < a.Position.Y + a.Scale.Y / 2 &&
+                        Position.Y + Scale.Y / 2> a.Position.Y) 
+                    {
+                        if(i == 0)
+                        {
+                            a.Texture = Properties.Resources.grassWildLeft;
+                            i++;
+                        }
+                        else
+                        {
+                            a.Texture = Properties.Resources.grassWildRight;
+                            i--;
+                        }
+
+                        //utok pokemona -> vyvolani funkci
+                        if (rnd.Next(0, 100) >= 97) Console.WriteLine("encounter");
+
+                        return true;
+                    };
                 }
 
             }
