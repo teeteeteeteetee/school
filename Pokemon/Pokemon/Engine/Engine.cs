@@ -27,7 +27,8 @@ namespace Pokemon.Engine
         private Window Window = null;
         private Thread GameLoop = null;
 
-        private static List<Player2D> AllPlayers = new List<Player2D>();
+        public static List<Player2D> AllPlayers = new List<Player2D>();
+        public static List<Wall2D> AllWalls = new List<Wall2D>();
 
         public Color BackgroundColor = Color.Aqua;
         public Image BackgroundImage = Properties.Resources.grass;
@@ -68,6 +69,15 @@ namespace Pokemon.Engine
         {
             AllPlayers.Remove(player);
         }
+        public static void RegisterWall(Wall2D wall)
+        {
+            AllWalls.Add(wall);
+        }
+
+        public static void UnRegisterWall(Wall2D wall)
+        {
+            AllWalls.Remove(wall);
+        }
 
         void gameLoop()
         {
@@ -106,7 +116,11 @@ namespace Pokemon.Engine
 
             foreach (Player2D player in AllPlayers)
             {
-                g.DrawImage(player.Character, player.Position.X, player.Position.Y, player.Scale.X, player.Scale.Y);
+                g.DrawImage(player.Texture, player.Position.X, player.Position.Y, player.Scale.X, player.Scale.Y);
+            }
+            foreach (Wall2D wall in AllWalls)
+            {
+                g.DrawImage(wall.Texture, wall.Position.X, wall.Position.Y, wall.Scale.X, wall.Scale.Y);
             }
 
         }

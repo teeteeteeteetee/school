@@ -15,6 +15,31 @@ namespace Pokemon.Engine
     {
 
         Player2D player;
+
+        Vector2 lastPos = new Vector2(85, 85);
+
+
+        //https://docs.microsoft.com/en-us/dotnet/api/system.array?view=net-5.0
+        //multi dimensionalni array
+        string[,] Map =
+            {
+                {"g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", "g", "g", "g", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", "g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g", ".", ".", ".", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g", "g", ".", ".", ".", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", "g", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", "g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "g" },
+                {"g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "g" }
+            };
+
         int i = 0;
 
         //deklarace -> vytvareni okenka
@@ -26,7 +51,20 @@ namespace Pokemon.Engine
         //abstract event
         public override void onLoad()
         {
-            player = new Player2D(new Vector2(25, 35), new Vector2(25, 35), "Player", Properties.Resources.Down);
+            //https://docs.microsoft.com/en-us/dotnet/api/system.array.getlength?view=net-5.0
+            for (int i = 0; i < Map.GetLength(0); i++)
+            {
+                for (int j = 0; j < Map.GetLength(1); j++)
+                {
+                    if(Map[i, j] == "g")
+                    {
+                        new Wall2D(new Vector2(j * 45, i * 45), new Vector2(55, 75), "Tree", Properties.Resources.tree);
+                    }
+                }
+            }
+
+            player = new Player2D(new Vector2(85, 85), new Vector2(35, 55), "Player", Properties.Resources.Down);
+
         }
 
         //abstract event
@@ -43,23 +81,35 @@ namespace Pokemon.Engine
             
         }
 
-        //klavesnice
+/*        public bool IsColliding(string tag)
+        {
+            foreach (Player2D b in Engine.AllPlayers)
+            {
+                if(b.Tag == tag)
+                {
+                    
+                }
+            }
+        }*/
+
+        //klavesnice ovladani pres sipky
         public override void GetKeyDown(KeyEventArgs e)
         {
+
+            Thread.Sleep(35);
+  
             switch (e.KeyCode)
             {
                 case Keys.Up:
 
                     if (i == 0)
                     {
-                        Thread.Sleep(60);
-                        player.Character = Properties.Resources.UpLeftLeg;
+                        player.Texture = Properties.Resources.UpLeftLeg;
                         i++;
                     }
                     else
                     {
-                        Thread.Sleep(60);
-                        player.Character = Properties.Resources.UpRightLeg;
+                        player.Texture = Properties.Resources.UpRightLeg;
                         i--;
                     }
                     
@@ -68,17 +118,14 @@ namespace Pokemon.Engine
                     break;
                 case Keys.Down:
 
-
                     if (i == 0)
                     {
-                        Thread.Sleep(60);
-                        player.Character = Properties.Resources.DownLeftLeg;
+                        player.Texture = Properties.Resources.DownLeftLeg;
                         i++;
                     }
                     else
                     {
-                        Thread.Sleep(60);
-                        player.Character = Properties.Resources.DownRightLeg;
+                        player.Texture = Properties.Resources.DownRightLeg;
                         i--;
                     }
 
@@ -89,14 +136,12 @@ namespace Pokemon.Engine
 
                     if (i == 0)
                     {
-                        Thread.Sleep(60);
-                        player.Character = Properties.Resources.LeftLeftLeg;
+                        player.Texture = Properties.Resources.LeftLeftLeg;
                         i++;
                     }
                     else
                     {
-                        Thread.Sleep(60);
-                        player.Character = Properties.Resources.LeftRightLeg;
+                        player.Texture = Properties.Resources.LeftRightLeg;
                         i--;
                     }
 
@@ -107,20 +152,31 @@ namespace Pokemon.Engine
 
                     if (i == 0)
                     {
-                        Thread.Sleep(60);
-                        player.Character = Properties.Resources.RightLeftLeg;
+                        player.Texture = Properties.Resources.RightLeftLeg;
                         i++;
                     }
                     else
                     {
-                        Thread.Sleep(60);
-                        player.Character = Properties.Resources.RightRightLeg;
+                        player.Texture = Properties.Resources.RightRightLeg;
                         i--;
                     }
 
                     player.Position.X += 5f;
                     break;
             }
+
+            //stromy
+            if (player.IsColliding("Tree"))
+            {
+                player.Position.X = lastPos.X;
+                player.Position.Y = lastPos.Y;
+            }
+            else
+            {
+                lastPos.X = player.Position.X;
+                lastPos.Y = player.Position.Y;
+            }
+
         }
 
         public override void GetKeyUp(KeyEventArgs e)
@@ -129,22 +185,22 @@ namespace Pokemon.Engine
             {
                 case Keys.Up:
 
-                    player.Character = Properties.Resources.Up;
+                    player.Texture = Properties.Resources.Up;
 
                     break;
                 case Keys.Down:
 
-                    player.Character = Properties.Resources.Down;
+                    player.Texture = Properties.Resources.Down;
 
                     break;
                 case Keys.Left:
 
-                    player.Character = Properties.Resources.Left;
+                    player.Texture = Properties.Resources.Left;
 
                     break;
                 case Keys.Right:
 
-                    player.Character = Properties.Resources.Right;
+                    player.Texture = Properties.Resources.Right;
 
                     break;
             }

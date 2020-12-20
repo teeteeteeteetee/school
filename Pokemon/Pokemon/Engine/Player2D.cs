@@ -13,7 +13,7 @@ namespace Pokemon.Engine
         public Vector2 Position = null;
         public Vector2 Scale = null;
         public string Tag = "";
-        public Bitmap Character = null;
+        public Bitmap Texture = null;
 
         public Player2D(Vector2 Position, Vector2 Scale, string Tag, Bitmap Bitmap)
         {
@@ -22,10 +22,28 @@ namespace Pokemon.Engine
             this.Tag = Tag;
 
             Bitmap bitmap = new Bitmap(Bitmap);
-            Character = bitmap;
+            Texture = bitmap;
 
             //ulozi objekty do listu, jejich posice velikost a jmeno
             Engine.RegisterPlayer(this);
+        }
+
+        public bool IsColliding(string tag)
+        {
+            foreach (Wall2D a in Engine.AllWalls)
+            {
+                if(a.Tag == tag)
+                {
+                    if (Position.X < a.Position.X + a.Scale.X /2 &&
+                        Position.X + Scale.X /4 > a.Position.X &&
+                        Position.Y < a.Position.Y + a.Scale.Y /2 &&
+                        Position.Y + Scale.Y /4 > a.Position.Y) return true;
+                }
+
+            }
+
+            return false;
+
         }
 
     }

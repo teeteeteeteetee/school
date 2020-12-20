@@ -78,7 +78,7 @@
     </Compile>
     <Compile Include="Engine\Game.cs" />
     <Compile Include="Engine\Player2D.cs" />
-    <Compile Include="Engine\Shape2D.cs" />
+    <Compile Include="Engine\Wall2D.cs" />
     <Compile Include="Engine\Vector2.cs" />
     <Compile Include="Object\Party.cs" />
     <Compile Include="Object\Player.cs" />
@@ -147,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scenes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tree.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
