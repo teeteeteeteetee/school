@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\Audio.cs" />
     <Compile Include="Engine\Building2D.cs" />
     <Compile Include="Engine\Ground2D.cs" />
     <Compile Include="Engine\Engine.cs">
@@ -93,11 +94,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Scenes\Choose.cs" />
+    <Compile Include="Scenes\Encounter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scenes\PokeCenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Object\Attributes\pokemon-images.json" />
-    <None Include="Object\Attributes\pokemon-info.json" />
+    <Content Include="Audio\encounter.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Object\Attributes\pokemon-images.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Object\Attributes\pokemon-info.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -149,8 +162,15 @@
     <None Include="Textures\DownRightLeg.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Audio\" />
-    <Folder Include="Scenes\" />
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tree.png" />

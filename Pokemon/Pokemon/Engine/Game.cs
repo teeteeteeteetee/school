@@ -4,35 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using Pokemon.Engine;
-using Pokemon.Object;
 using System.Windows.Forms;
 using System.Threading;
 
+using Pokemon.Engine;
+using Pokemon.Object;
+using Pokemon.Scenes;
+
 namespace Pokemon.Engine
 {
+
+    public class Controls
+    {
+        public static bool ControlEnable { get; set; }
+    }
+
     class Game : Pokemon.Engine.Engine
     {
 
         Player2D player;
 
         Vector2 lastPos = new Vector2(85, 85);
-
-
-        //https://docs.microsoft.com/en-us/dotnet/api/system.array?view=net-5.0
-        //multi dimensionalni array
-
-
-        /// <summary>
-        /// 
-        /// e = treeUp
-        /// t = tree
-        /// f = treeDown
-        /// g = grassWild
-        /// h = buildingPokeHeal
-        /// 
-        /// 
-        /// </summary>
 
         int i = 0;
 
@@ -49,6 +41,8 @@ namespace Pokemon.Engine
             player = new Player2D(new Vector2(85, 85), new Vector2(45, 65), "Player", Properties.Resources.Down);
 
             new Map();
+
+            Controls.ControlEnable = true;
 
         }
 
@@ -70,6 +64,8 @@ namespace Pokemon.Engine
         {
 
             //Thread.Sleep(35);
+
+            if (Controls.ControlEnable == false) return;
   
             switch (e.KeyCode)
             {
@@ -162,6 +158,9 @@ namespace Pokemon.Engine
 
         public override void GetKeyUp(KeyEventArgs e)
         {
+
+            if (Controls.ControlEnable == false) return;
+
             switch (e.KeyCode)
             {
                 case Keys.Up:

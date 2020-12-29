@@ -26,3 +26,8 @@ C:\Users\Martin\source\repos\Pokemon\Pokemon\bin\Debug\System.Threading.Tasks.Ex
 C:\Users\Martin\source\repos\Pokemon\Pokemon\bin\Debug\System.ValueTuple.xml
 C:\Users\Martin\source\repos\Pokemon\Pokemon\obj\Debug\Pokemon.Properties.Resources.resources
 C:\Users\Martin\source\repos\Pokemon\Pokemon\obj\Debug\Pokemon.csproj.GenerateResource.cache
+C:\Users\Martin\source\repos\Pokemon\Pokemon\bin\Debug\Object\Attributes\pokemon-images.json
+C:\Users\Martin\source\repos\Pokemon\Pokemon\bin\Debug\Object\Attributes\pokemon-info.json
+C:\Users\Martin\source\repos\Pokemon\Pokemon\bin\Debug\Audio\encounter.wav
+C:\Users\Martin\source\repos\Pokemon\Pokemon\obj\Debug\Interop.WMPLib.dll
+C:\Users\Martin\source\repos\Pokemon\Pokemon\obj\Debug\Pokemon.csproj.ResolveComReference.cache

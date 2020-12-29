@@ -13,10 +13,12 @@ namespace Pokemon.Engine
 
     class Window : Form
     {
+
         public Window()
         {
             this.DoubleBuffered = true;
         }
+
     }
 
     public abstract class Engine
@@ -32,6 +34,9 @@ namespace Pokemon.Engine
         public static List<Ground2D> AllGrounds = new List<Ground2D>();
         public static List<Building2D> AllBuildings = new List<Building2D>();
 
+        public Scenes.EncounterControl encounterControl = null;
+
+        public Panel PanelScene = null;
         public Color BackgroundColor = Color.Aqua;
         public Image BackgroundImage = Properties.Resources.grass;
 
@@ -40,7 +45,9 @@ namespace Pokemon.Engine
         {
             this.windowSize = windowSize;
             this.windowTitle = windowTitle;
-             
+            
+            //form
+
             Window = new Window();
 
             Window.Size = new Size((int)this.windowSize.X, (int)this.windowSize.Y);
@@ -54,6 +61,14 @@ namespace Pokemon.Engine
             Window.BackgroundImage = Properties.Resources.grass;
 
             onLoad();
+
+            //usercontrol
+
+            encounterControl = new Scenes.EncounterControl();
+
+            encounterControl.Dock = DockStyle.Fill;
+            encounterControl.Hide();
+            Window.Controls.Add(encounterControl);
 
             GameLoop = new Thread(gameLoop);
             GameLoop.Start();
@@ -170,6 +185,5 @@ namespace Pokemon.Engine
         public abstract void onDraw();
         public abstract void GetKeyDown(KeyEventArgs e);
         public abstract void GetKeyUp(KeyEventArgs e);
-
     }
 }

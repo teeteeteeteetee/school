@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Pokemon.Object;
+using Pokemon.Scenes;
+
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Diagnostics;
 
 namespace Pokemon.Engine
 {
@@ -16,6 +22,8 @@ namespace Pokemon.Engine
         public Bitmap Texture = null;
 
         Random rnd = new Random();
+        Object.Pokemon obj = new Object.Pokemon();
+        Scenes.Encounter enc = new Scenes.Encounter();
 
         int i = 0;
 
@@ -86,7 +94,25 @@ namespace Pokemon.Engine
                         }
 
                         //utok pokemona -> vyvolani funkci
-                        if (rnd.Next(0, 100) >= 97) Console.WriteLine("encounter");
+                        if (rnd.Next(0, 100) >= 97) {
+
+                            //var Enemy = obj.getRandomPokemon();
+
+                            var RAWJSON = obj.getRandomPokemon();
+
+                            using (JsonDocument document = JsonDocument.Parse(RAWJSON))
+                            {
+                                JsonElement DATA = document.RootElement;
+
+                                Console.WriteLine(DATA.GetProperty("name"));
+                                Console.WriteLine(DATA.GetProperty("id"));
+
+                                enc.Run(DATA.GetProperty("name").ToString(), DATA.GetProperty("id").ToString());
+
+                            }
+
+
+                        }
 
                         return true;
                     };
