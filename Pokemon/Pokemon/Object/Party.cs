@@ -6,12 +6,30 @@ using System.Threading.Tasks;
 
 namespace Pokemon.Object
 {
-    class Party
+    public class Party
     {
 
         //party
-        public int Slot { get; set; }
-        public int ID { get; set; }
+        public static List<int> pkmnParty = new List<int>();
+
+        public void PokemonAdd(int x)
+        {
+            if (pkmnParty.Count == 6) return;
+
+            pkmnParty.Add(x);
+
+        }
+        public void PokemonRemove(int index)
+        {
+            pkmnParty.Remove(index);
+        }
+
+        public int MainPokemon()
+        {
+            return pkmnParty[0];
+        }
+
+
 
     }
 }

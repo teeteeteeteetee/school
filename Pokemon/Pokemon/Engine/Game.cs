@@ -26,6 +26,8 @@ namespace Pokemon.Engine
 
         Vector2 lastPos = new Vector2(85, 85);
 
+        Scenes.Choose choose = new Scenes.Choose();
+
         int i = 0;
 
         //deklarace -> vytvareni okenka
@@ -35,7 +37,7 @@ namespace Pokemon.Engine
         }
 
         //abstract event
-        public override void onLoad()
+        public override async void onLoad()
         {
 
             player = new Player2D(new Vector2(85, 85), new Vector2(45, 65), "Player", Properties.Resources.Down);
@@ -43,6 +45,10 @@ namespace Pokemon.Engine
             new Map();
 
             Controls.ControlEnable = true;
+
+            await Task.Delay(100);
+            choose.Run();
+            
 
         }
 

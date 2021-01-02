@@ -161,6 +161,24 @@ namespace Pokemon.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream bulbasaur {
+            get {
+                return ResourceManager.GetStream("bulbasaur", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream charmander {
+            get {
+                return ResourceManager.GetStream("charmander", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Down {
@@ -187,6 +205,15 @@ namespace Pokemon.Properties {
             get {
                 object obj = ResourceManager.GetObject("DownRightLeg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream encounter {
+            get {
+                return ResourceManager.GetStream("encounter", resourceCulture);
             }
         }
         
@@ -287,6 +314,15 @@ namespace Pokemon.Properties {
             get {
                 object obj = ResourceManager.GetObject("RightRightLeg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream squirle {
+            get {
+                return ResourceManager.GetStream("squirle", resourceCulture);
             }
         }
         

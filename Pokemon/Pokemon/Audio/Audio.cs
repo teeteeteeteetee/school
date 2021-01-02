@@ -11,24 +11,38 @@ namespace Pokemon.Audio
 {
     public class Audio
     {
-        SoundPlayer player = new SoundPlayer();
 
         public void EncounterAudio(int x)
         {
-            player.SoundLocation = @"Audio\encounter.wav";
+            SoundPlayer player = new SoundPlayer();
+            player.Stream = Properties.Resources.encounter;
 
             if (x == 1) { player.Play(); } else { player.Stop(); }
 
+        }
+
+        public void AudioPlay(UnmanagedMemoryStream x)
+        {
+            SoundPlayer player = new SoundPlayer();
+            player.Stream = x;
+            player.Play();
 
         }
 
         //https://pokemoncries.com/cries-old/1.mp3
         public async void URLAudio(string URL)
         {
-            var wplayer = new WMPLib.WindowsMediaPlayer();
-            wplayer.URL = URL;
-            await Task.Delay(100);
-            wplayer.controls.play();
+            try
+            {
+                var wplayer = new WMPLib.WindowsMediaPlayer();
+                wplayer.URL = URL;
+                await Task.Delay(100);
+                wplayer.controls.play();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
     }

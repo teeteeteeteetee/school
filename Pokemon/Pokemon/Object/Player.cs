@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Diagnostics;
 
 namespace Pokemon.Object
 {
@@ -11,34 +14,31 @@ namespace Pokemon.Object
     public class Player
     {
 
-        string CurrentKey = null;
+        //pocet pokemonu v party + static aby value zustalo v pameti
+        public static List<int> Party = new List<int>();
 
-        //pocet pokemonu v party
-        public List<int> Party = new List<int>();
-
-        //smer
-        public void Direction(string Input)
+        public void PokemonAdd(int x)
         {
-            //zapamatuje si klavesu
-            CurrentKey = Input;
+            if (Party.Count == 6) return;
+
+            Party.Add(x);
+
         }
+        public void PokemonRemove(int index)
+        {
+            Party.Remove(index);
+        }
+
+        public int getMainPokemon()
+        {
+
+            return Party[0];
+        }
+
 
         public Player()
         {
 
-        }
-
-        public Bitmap Model()
-        {
-
-            switch (CurrentKey)
-            {
-                case "UP": return Properties.Resources.Up;
-                case "DOWN": return Properties.Resources.Down;
-                case "LEFT": return Properties.Resources.Left;
-                case "RIGHT": return Properties.Resources.Right;
-                default: return Properties.Resources.Down;
-            }
         }
 
 

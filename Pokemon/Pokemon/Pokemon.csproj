@@ -94,17 +94,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Scenes\Choose.cs" />
+    <Compile Include="Scenes\Change.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scenes\Choose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Scenes\Encounter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Scenes\PokeCenter.cs" />
+    <Compile Include="Scenes\PokeCenter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Content Include="Audio\encounter.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Audio\charmander.wav" />
+    <None Include="Audio\encounter.wav" />
+    <None Include="Audio\squirle.wav" />
+    <None Include="Audio\bulbasaur.wav" />
     <Content Include="Object\Attributes\pokemon-images.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

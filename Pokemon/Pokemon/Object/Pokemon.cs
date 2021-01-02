@@ -56,6 +56,22 @@ namespace Pokemon.Object
 
         }
 
+        public string getPokemonNameByID(int x)
+        {
+            var RAWJSON = File.ReadAllText(Directory.GetCurrentDirectory() + "\\Object\\Attributes\\pokemon-info.json");
+            using (JsonDocument document = JsonDocument.Parse(RAWJSON))
+            {
+                JsonElement DATA = document.RootElement;
+
+
+
+                var SELECTED = DATA[x];
+
+                return SELECTED.GetProperty("name").ToString();
+
+            }
+        }
+
         public dynamic getData(int pokemonID, string pokemonName)
         {
 

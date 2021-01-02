@@ -21,6 +21,7 @@ namespace Pokemon.Engine
 
     }
 
+    //abstract je designovano aby prepisoval metody atd
     public abstract class Engine
     {
 

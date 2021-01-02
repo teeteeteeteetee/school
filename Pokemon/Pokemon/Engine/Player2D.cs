@@ -23,7 +23,6 @@ namespace Pokemon.Engine
 
         Random rnd = new Random();
         Object.Pokemon obj = new Object.Pokemon();
-        Scenes.Encounter enc = new Scenes.Encounter();
 
         int i = 0;
 
@@ -102,6 +101,8 @@ namespace Pokemon.Engine
 
                             using (JsonDocument document = JsonDocument.Parse(RAWJSON))
                             {
+                                Scenes.Encounter enc = new Scenes.Encounter();
+
                                 JsonElement DATA = document.RootElement;
 
                                 Console.WriteLine(DATA.GetProperty("name"));
