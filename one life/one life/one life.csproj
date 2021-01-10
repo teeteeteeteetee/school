@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3F720A7E-F8AF-422C-B39B-49925E8AC8D1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>one_life</RootNamespace>
+    <AssemblyName>one life</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Engine\Debug.cs" />
+    <Compile Include="Engine\Enemy2D.cs" />
+    <Compile Include="Engine\Engine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Engine\Game.cs" />
+    <Compile Include="Engine\GameMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Engine\Ground2D.cs" />
+    <Compile Include="Engine\Map.cs" />
+    <Compile Include="Engine\Player2D.cs" />
+    <Compile Include="Engine\Settings.cs" />
+    <Compile Include="Engine\Vector2.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Background.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\brick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\PlayerRightRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\PlayerLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\PlayerLeftLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\PlayerLeftRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\PlayerRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\PlayerRightLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Milk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\UFO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Godzilla.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

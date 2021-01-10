@@ -1,0 +1,9 @@
+C:\Users\Martin\source\repos\one life\one life\bin\Debug\one life.exe.config
+C:\Users\Martin\source\repos\one life\one life\bin\Debug\one life.exe
+C:\Users\Martin\source\repos\one life\one life\bin\Debug\one life.pdb
+C:\Users\Martin\source\repos\one life\one life\obj\Debug\one life.csprojAssemblyReference.cache
+C:\Users\Martin\source\repos\one life\one life\obj\Debug\one life.csproj.CoreCompileInputs.cache
+C:\Users\Martin\source\repos\one life\one life\obj\Debug\one life.exe
+C:\Users\Martin\source\repos\one life\one life\obj\Debug\one life.pdb
+C:\Users\Martin\source\repos\one life\one life\obj\Debug\one_life.Properties.Resources.resources
+C:\Users\Martin\source\repos\one life\one life\obj\Debug\one life.csproj.GenerateResource.cache
