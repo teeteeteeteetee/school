@@ -1,0 +1,10 @@
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\bin\Debug\fawuhfkawjhjkf.exe.config
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\bin\Debug\fawuhfkawjhjkf.exe
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\bin\Debug\fawuhfkawjhjkf.pdb
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\obj\Debug\fawuhfkawjhjkf.csprojAssemblyReference.cache
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\obj\Debug\fawuhfkawjhjkf.Properties.Resources.resources
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\obj\Debug\fawuhfkawjhjkf.csproj.GenerateResource.cache
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\obj\Debug\fawuhfkawjhjkf.csproj.CoreCompileInputs.cache
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\obj\Debug\fawuhfkawjhjkf.exe
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\obj\Debug\fawuhfkawjhjkf.pdb
+C:\Users\Martin\source\repos\fawuhfkawjhjkf\fawuhfkawjhjkf\obj\Debug\fawuhfkawjhjkf.App.resources
